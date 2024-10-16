@@ -1,0 +1,39 @@
+.country-details {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.country-flag {
+  width: 150px;
+  height: auto;
+  margin: 20px 0;
+}
+
+.border-countries {
+  list-style-type: none;
+  padding: 0;
+}
+
+.border-countries li {
+  margin: 5px 0;
+}
+
+.border-countries a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.border-countries a:hover {
+  text-decoration: underline;
+}
+
+.loading {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
