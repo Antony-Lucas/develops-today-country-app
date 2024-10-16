@@ -7,7 +7,11 @@ const CountryList = () => {
   const { countries, loading, error } = useCountryList();
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="loading">
+        <p>Loading...</p>
+      </div>
+    );
   }
 
   if (error) {

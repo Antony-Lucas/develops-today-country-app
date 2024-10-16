@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Line } from "react-chartjs-2";
 import useCountryDetails from "../hooks/useCountryDetails";
+import { HiChevronLeft } from "react-icons/hi";
 import {
   Chart,
   CategoryScale,
@@ -11,7 +12,6 @@ import {
 } from "chart.js";
 import "../style/countryDetails.css";
 
-// Registra os componentes do Chart.js
 Chart.register(CategoryScale, LinearScale, LineElement, PointElement);
 
 const CountryDetails = () => {
@@ -63,29 +63,38 @@ const CountryDetails = () => {
 
   return (
     <div className="country-details">
-      <h1>{country.name}</h1>
-      <img
-        src={flag}
-        alt={`Flag of ${country.name}`}
-        className="country-flag"
-      />
-      <h2>Country Code: {country.countryCode}</h2>
+      <Link to={`/`} className="back-button">
+        <HiChevronLeft />
+        <span>Back to list</span>
+      </Link>
+      <div className="country-info">
+        <div className="country-data">
+          <img
+            src={flag}
+            alt={`Flag of ${country.name}`}
+            className="country-flag"
+          />
+          <h1>{country.name}</h1>
+          <h4>Country Code: {country.countryCode}</h4>
 
-      <h3>Border Countries:</h3>
-      <ul className="border-countries">
-        {borders.map((borderCountry) => (
-          <li key={borderCountry.countryCode}>
-            <Link
-              to={`/country?name=${borderCountry.commonName}&code=${borderCountry.countryCode}`}
-            >
-              {borderCountry.commonName}
-            </Link>
-          </li>
-        ))}
-      </ul>
-
-      <h3>Population Over Time</h3>
-      <Line data={chartData} options={options} />
+          <p>Border Countries:</p>
+          <ul className="border-countries">
+            {borders.map((borderCountry) => (
+              <li key={borderCountry.countryCode}>
+                <Link
+                  to={`/country?name=${borderCountry.commonName}&code=${borderCountry.countryCode}`}
+                >
+                  {borderCountry.commonName}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="country-chart">
+          <h3>Population Over Time in {country.name}</h3>
+          <Line data={chartData} options={options} />
+        </div>
+      </div>
     </div>
   );
 };
