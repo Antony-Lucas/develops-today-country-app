@@ -5,11 +5,15 @@
 - **Backend**: 
   - **Installation**:
     - `npm install @nestjs/axios`
-    - `npm install @nestjs/config@^3.2.3`
+    - `npm install @nestjs/config`
   - **Run**: `npm run start`
 - **Frontend**: 
   - **Installation**:
-    - `npm install axios chart.js react-chartjs-2 react-router-dom`
+    - `npm install axios `
+    - `npm install chart.js `
+    - `npm install react-chartjs-2 `
+    - `npm install react-router-dom`
+    - `npm install npm install react-icons --save`
   - **Run**: `npm start` (port 8081)
 
 ## Access the App
